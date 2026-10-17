@@ -37,3 +37,12 @@ export const Clock = ({ className }: P) => (
 export const Whatsapp = ({ className }: P) => (
   <svg viewBox="0 0 24 24" className={className} {...base}><path d="M3.5 20.5 5 16a8.5 8.5 0 1 1 3 3l-4.5 1.5Z" /><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 1c-1-.5-1.5-1-2-2l1-1-1-2L9 9.5Z" /></svg>
 );
+export const Bottle = ({ className }: P) => (
+  <svg viewBox="0 0 48 48" className={className} {...base} strokeWidth={1.2}><path d="M20 4h8v6h-8z" /><path d="M20 10c0 4-6 6-6 12v18a4 4 0 0 0 4 4h12a4 4 0 0 0 4-4V22c0-6-6-8-6-12" /><path d="M14 26h20M14 36h20" /></svg>
+);
+export const Jar = ({ className }: P) => (
+  <svg viewBox="0 0 48 48" className={className} {...base} strokeWidth={1.2}><rect x="12" y="6" width="24" height="6" rx="2" /><path d="M14 12h20v26a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4z" /><path d="M14 22h20M14 32h20" /></svg>
+);
+export const Bowl = ({ className }: P) => (
+  <svg viewBox="0 0 48 48" className={className} {...base} strokeWidth={1.2}><path d="M6 24h36a18 18 0 0 1-36 0Z" /><path d="M16 24c0-4 4-8 8-8s8 4 8 8" /><path d="M18 42h12" /></svg>
+);

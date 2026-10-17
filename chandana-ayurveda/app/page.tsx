@@ -4,13 +4,15 @@ import Link from "next/link";
 import AppointmentForm from "@/components/AppointmentForm";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
-import { Badge, Clipboard, HeartHand, Leaf, Stethoscope } from "@/components/Icons";
+import { Badge, Bottle, Bowl, Clipboard, HeartHand, Jar, Leaf, Stethoscope, Whatsapp } from "@/components/Icons";
 import {
   accreditations,
   amenities,
   facilities,
   images,
   mapsDirectionsUrl,
+  medicineEnquiryUrl,
+  medicines,
   reviewsUrl,
   site,
   testimonials,
@@ -112,7 +114,7 @@ export default function Home() {
           {/* Gentle warm shade on the left so the glass panel has a calm backdrop */}
           <div className="absolute inset-0 -z-10 bg-gradient-to-r from-forest/40 via-forest/10 to-transparent" />
           <div className="mx-auto w-full max-w-6xl px-6">
-            <div className="max-w-xl rounded-2xl border border-white/25 bg-white/10 p-6 shadow-[0_8px_40px_rgba(38,61,43,0.25)] backdrop-blur-md sm:p-10 lg:p-12">
+            <div className="max-w-xl rounded-2xl border border-white/25 lg:max-w-2xl bg-white/10 p-6 shadow-[0_8px_40px_rgba(38,61,43,0.25)] backdrop-blur-md sm:p-10 lg:p-12">
               <p className="text-xs uppercase tracking-[0.3em] text-white/85">Kerala Ayurveda Hospital</p>
               <h1 className="mt-5 font-serif text-4xl leading-[1.1] text-white sm:text-5xl lg:text-6xl">
                 Heal naturally,
@@ -329,8 +331,70 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Medicines */}
+        <section id="medicines" className="py-16 sm:py-24 md:py-32">
+          <div className="mx-auto max-w-6xl px-6">
+            <Reveal className="grid gap-6 lg:grid-cols-[1fr_2fr] lg:items-end">
+              <div>
+                <Label>Our Medicines</Label>
+                <h2 className="mt-5 font-serif text-3xl text-forest sm:text-4xl md:text-5xl">Ayurvedic Medicines</h2>
+              </div>
+              <p className="max-w-xl leading-relaxed text-muted lg:justify-self-end">
+                Classical preparations available at our pharmacy. Message us on WhatsApp to check availability
+                and price.
+              </p>
+            </Reveal>
+
+            <ul className="mt-10 grid gap-5 sm:mt-16 sm:grid-cols-2 lg:grid-cols-4">
+              {medicines.map((m, i) => {
+                const Icon = m.form === "oil" ? Bottle : m.form === "paste" ? Jar : Bowl;
+                return (
+                  <li key={m.name}>
+                    <Reveal delay={i * 100} className="group flex h-full flex-col overflow-hidden rounded-2xl border border-black/5 bg-linen">
+                      <div className="relative flex aspect-[2/1] items-center justify-center overflow-hidden bg-forest sm:aspect-[4/3]">
+                        {m.image ? (
+                          <Image src={m.image} alt={m.name} fill sizes="(min-width:1024px) 25vw, (min-width:640px) 50vw, 100vw" className="object-cover object-[50%_42%] transition-transform duration-700 group-hover:scale-105" />
+                        ) : (
+                          <Icon className="h-16 w-16 text-gold sm:h-20 sm:w-20 transition-transform duration-700 group-hover:scale-110" />
+                        )}
+                        <span className="absolute left-4 top-4 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs text-white backdrop-blur-md">
+                          {m.type}
+                        </span>
+                      </div>
+                      <div className="flex flex-1 flex-col p-6">
+                        <h3 className="font-serif text-xl text-forest">{m.name}</h3>
+                        <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">{m.desc}</p>
+                        {(m.size || m.price) && (
+                          <p className="mt-4 flex items-baseline justify-between text-sm">
+                            <span className="text-muted">{m.size}</span>
+                            <span className="font-semibold text-forest">{m.price}</span>
+                          </p>
+                        )}
+                        <a
+                          href={medicineEnquiryUrl(m.name)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-forest px-5 py-2.5 text-sm text-white transition-colors hover:bg-sage"
+                        >
+                          <Whatsapp className="h-4 w-4" />
+                          Buy on WhatsApp
+                        </a>
+                      </div>
+                    </Reveal>
+                  </li>
+                );
+              })}
+            </ul>
+
+            <p className="mt-8 text-xs leading-relaxed text-muted">
+              Please consult our physician before starting any medicine. Some preparations are dispensed only
+              after consultation.
+            </p>
+          </div>
+        </section>
+
         {/* Our Doctor */}
-        <section id="doctor" className="py-16 sm:py-24 md:py-32">
+        <section id="doctor" className="border-t border-black/5 py-16 sm:py-24 md:py-32">
           <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 md:grid-cols-[2fr_3fr] md:gap-14">
             <Reveal>
               {/* Portrait placeholder — replace with a photo of Dr. Siji Joseph */}

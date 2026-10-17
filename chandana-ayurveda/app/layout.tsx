@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Jost, Noto_Sans_Malayalam, Noto_Serif_Malayalam } from "next/font/google";
+import { DM_Sans, Lora, Noto_Sans_Malayalam, Noto_Serif_Malayalam } from "next/font/google";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const jost = Jost({
-  variable: "--font-jost",
+// Headings: a sturdy, readable serif (variable weight 400–700)
+const lora = Lora({
+  variable: "--font-lora",
   subsets: ["latin"],
 });
 
-// Malayalam fallbacks: Cormorant and Jost have no Malayalam glyphs
+// Body text: a clean, highly legible sans-serif
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
+  subsets: ["latin"],
+});
+
+// Malayalam fallbacks: Lora and DM Sans have no Malayalam glyphs
 const mlSerif = Noto_Serif_Malayalam({
   variable: "--font-ml-serif",
   subsets: ["malayalam"],
@@ -34,7 +35,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${jost.variable} ${mlSerif.variable} ${mlSans.variable} h-full antialiased`}
+      className={`${lora.variable} ${dmSans.variable} ${mlSerif.variable} ${mlSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">{children}</body>
     </html>

@@ -226,3 +226,48 @@ export const mapsDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destina
 export const whatsappUrl = site.whatsappNumber
   ? `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent("Hello Chandana Ayurveda, I have a question.")}`
   : "";
+
+// Medicines for sale — replace with the hospital's actual products. `price` and `size`
+// are optional; add `image: "/medicines/….jpg"` (in public/medicines/) for a real photo.
+export type Medicine = {
+  name: string;
+  type: string;
+  form: "oil" | "paste" | "powder";
+  desc: string;
+  size?: string;
+  price?: string;
+  image?: string;
+};
+
+export const medicines: Medicine[] = [
+  {
+    name: "Chandha™",
+    type: "Herbal powder",
+    form: "powder",
+    desc: "Pure Ayurveda for a healthier tomorrow. Ask us about its ingredients and how to take it.",
+    image: "/medicines/chandha.jpg",
+  },
+  {
+    name: "Dhanwantharam Thailam",
+    type: "Medicated oil",
+    form: "oil",
+    desc: "A classical Kerala oil traditionally used for Abhyanga massage to support joints, muscles and nerves.",
+  },
+  {
+    name: "Pinda Thailam",
+    type: "Medicated oil",
+    form: "oil",
+    desc: "A cooling oil traditionally applied to soothe joint pain and burning sensation.",
+  },
+  {
+    name: "Chyawanprash",
+    type: "Lehyam · herbal jam",
+    form: "paste",
+    desc: "A time-honoured rasayana made with amla, traditionally taken to support immunity and vitality.",
+  },
+];
+
+export const medicineEnquiryUrl = (name: string) =>
+  `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(
+    `Hello ${site.name}, I would like to buy ${name}. Is it available, and what is the price?`,
+  )}`;

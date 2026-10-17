@@ -11,7 +11,7 @@
   --sage: #849477; /* secondary: sage green */
   --gold: #c8a96b; /* accent: muted gold */
   --gold-deep: #8a6e36; /* gold dark enough for small text on ivory */
-  --muted: #5e6b5c;
+  --muted: #4d5a4b;
 }
 
 @theme inline {
@@ -23,8 +23,8 @@
   --color-gold: var(--gold);
   --color-gold-deep: var(--gold-deep);
   --color-muted: var(--muted);
-  --font-sans: var(--font-jost), var(--font-ml-sans), sans-serif;
-  --font-serif: var(--font-cormorant), var(--font-ml-serif), serif;
+  --font-sans: var(--font-dm-sans), var(--font-ml-sans), sans-serif;
+  --font-serif: var(--font-lora), var(--font-ml-serif), serif;
 }
 
 html {
@@ -34,6 +34,15 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+/* Bold, readable headings across the site */
+h1,
+h2,
+h3,
+blockquote {
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 section[id] {
