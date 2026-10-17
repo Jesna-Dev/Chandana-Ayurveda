@@ -62,9 +62,9 @@ export default function ContactPage() {
       <main className="flex-1">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-        <section className="mx-auto max-w-6xl px-6 pb-16 pt-12 md:pt-20">
+        <section className="mx-auto max-w-6xl px-6 pb-16 pt-10 md:pt-20">
           <p className="text-xs uppercase tracking-[0.3em] text-gold-deep">Contact Us</p>
-          <h1 className="mt-6 font-serif text-5xl leading-[1.1] text-forest sm:text-6xl">We’re here to help</h1>
+          <h1 className="mt-6 font-serif text-4xl leading-[1.1] text-forest sm:text-5xl md:text-6xl">We’re here to help</h1>
           <p className="mt-6 max-w-xl leading-relaxed text-muted">
             Call, message or visit us — our team will gladly answer your questions and help you plan your
             treatment.

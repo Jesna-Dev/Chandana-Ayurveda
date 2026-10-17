@@ -108,7 +108,7 @@ export default function HistoryContent() {
 
   return (
     <div lang={lang}>
-      <section className="mx-auto max-w-6xl px-6 pb-20 pt-12 md:pt-20">
+      <section className="mx-auto max-w-6xl px-6 pb-20 pt-10 md:pt-20">
         <div className="flex items-start justify-between gap-6">
           {/* Letter-spacing breaks apart Malayalam conjuncts, so it is English-only */}
           <p className={`text-gold-deep ${lang === "en" ? "text-xs uppercase tracking-[0.3em]" : "text-sm"}`}>
@@ -134,7 +134,7 @@ export default function HistoryContent() {
             ))}
           </div>
         </div>
-        <h1 className="mt-6 font-serif text-5xl leading-[1.15] text-forest sm:text-6xl">{t.title}</h1>
+        <h1 className="mt-6 font-serif text-4xl leading-[1.15] text-forest sm:text-5xl md:text-6xl">{t.title}</h1>
         <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted">{t.intro}</p>
       </section>
 

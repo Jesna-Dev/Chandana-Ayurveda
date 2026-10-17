@@ -112,9 +112,9 @@ export default function Home() {
           {/* Gentle warm shade on the left so the glass panel has a calm backdrop */}
           <div className="absolute inset-0 -z-10 bg-gradient-to-r from-forest/40 via-forest/10 to-transparent" />
           <div className="mx-auto w-full max-w-6xl px-6">
-            <div className="max-w-xl rounded-2xl border border-white/25 bg-white/10 p-8 shadow-[0_8px_40px_rgba(38,61,43,0.25)] backdrop-blur-md sm:p-12">
+            <div className="max-w-xl rounded-2xl border border-white/25 bg-white/10 p-6 shadow-[0_8px_40px_rgba(38,61,43,0.25)] backdrop-blur-md sm:p-10 lg:p-12">
               <p className="text-xs uppercase tracking-[0.3em] text-white/85">Kerala Ayurveda Hospital</p>
-              <h1 className="mt-5 font-serif text-5xl leading-[1.1] text-white sm:text-6xl">
+              <h1 className="mt-5 font-serif text-4xl leading-[1.1] text-white sm:text-5xl lg:text-6xl">
                 Heal naturally,
                 <br />
                 the Ayurvedic way.
@@ -133,11 +133,11 @@ export default function Home() {
         </section>
 
         {/* About */}
-        <section id="about" className="border-t border-black/5 py-24">
+        <section id="about" className="border-t border-black/5 py-16 sm:py-24">
           <div className="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-[1fr_2fr]">
             <Label>About</Label>
             <div>
-              <p className="font-serif text-3xl leading-snug text-forest md:text-4xl">
+              <p className="font-serif text-2xl leading-snug text-forest sm:text-3xl md:text-4xl">
                 Chandana — sandalwood — stands for purity, calm and healing. We bring the classical Kerala
                 tradition of Ayurveda to every patient, with care shaped around your constitution.
               </p>
@@ -161,12 +161,12 @@ export default function Home() {
         </section>
 
         {/* Our Approach */}
-        <section id="approach" className="border-t border-black/5 py-24 md:py-32">
+        <section id="approach" className="border-t border-black/5 py-16 sm:py-24 md:py-32">
           <div className="mx-auto max-w-6xl px-6">
             <Reveal className="grid gap-12 md:grid-cols-[1fr_2fr]">
               <Label>Our Approach</Label>
               <div>
-                <h2 className="font-serif text-4xl leading-tight text-forest md:text-5xl">
+                <h2 className="font-serif text-3xl leading-tight text-forest sm:text-4xl md:text-5xl">
                   Healing the person,
                   <br />
                   not just the illness.
@@ -179,7 +179,7 @@ export default function Home() {
               </div>
             </Reveal>
 
-            <ul className="mt-16 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+            <ul className="mt-10 sm:mt-16 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
               {principles.map((p, i) => (
                 <li key={p.title}>
                   <Reveal delay={i * 100} className="h-full border-t border-gold pt-6">
@@ -191,7 +191,7 @@ export default function Home() {
               ))}
             </ul>
 
-            <Reveal className="mt-20 rounded-2xl bg-linen p-8 sm:p-12">
+            <Reveal className="mt-14 sm:mt-20 rounded-2xl bg-linen p-6 sm:p-12">
               <p className="text-xs uppercase tracking-[0.3em] text-gold-deep">Your healing journey</p>
               <ol className="relative mt-10 grid gap-10 md:grid-cols-4 md:gap-6">
                 {journey.map((j, i) => (
@@ -215,21 +215,21 @@ export default function Home() {
         </section>
 
         {/* Treatments */}
-        <section id="treatments" className="bg-forest py-24 md:py-32">
+        <section id="treatments" className="bg-forest py-16 sm:py-24 md:py-32">
           <div className="mx-auto max-w-6xl px-6">
             <Reveal className="mx-auto max-w-2xl text-center">
               <p className="text-xs uppercase tracking-[0.3em] text-gold">Treatments</p>
-              <h2 className="mt-5 font-serif text-4xl text-white md:text-5xl">Classical Ayurvedic Therapies</h2>
+              <h2 className="mt-5 font-serif text-3xl text-white sm:text-4xl md:text-5xl">Classical Ayurvedic Therapies</h2>
               <p className="mt-5 leading-relaxed text-white/60">
                 Time-tested Kerala therapies, prepared with medicated oils and fresh herbs.
               </p>
             </Reveal>
 
-            <ul className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <ul className="mt-10 sm:mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {treatments.map((t, i) => (
                 <li key={t.name}>
                   <Reveal delay={(i % 3) * 120}>
-                    <article className="group relative isolate aspect-[3/4] overflow-hidden rounded-2xl bg-black/20">
+                    <article className="group relative isolate aspect-[4/5] overflow-hidden rounded-2xl bg-black/20 sm:aspect-[3/4]">
                       <Image
                         src={t.image}
                         alt={t.name}
@@ -268,14 +268,14 @@ export default function Home() {
         </section>
 
         {/* Facilities */}
-        <section id="facilities" className="bg-linen py-24 md:py-32">
+        <section id="facilities" className="bg-linen py-16 sm:py-24 md:py-32">
           <div className="mx-auto max-w-6xl px-6">
-            <Reveal className="grid gap-6 md:grid-cols-[1fr_2fr] md:items-end">
+            <Reveal className="grid gap-6 lg:grid-cols-[1fr_2fr] lg:items-end">
               <div>
                 <Label>Hospital Facilities</Label>
-                <h2 className="mt-5 font-serif text-4xl text-forest md:text-5xl">A Place to Heal</h2>
+                <h2 className="mt-5 font-serif text-3xl text-forest sm:text-4xl md:text-5xl">A Place to Heal</h2>
               </div>
-              <p className="max-w-xl leading-relaxed text-muted md:justify-self-end">
+              <p className="max-w-xl leading-relaxed text-muted lg:justify-self-end">
                 From the first consultation to a full residential stay, every space is designed for calm,
                 comfort and care.
               </p>
@@ -315,7 +315,7 @@ export default function Home() {
               </Link>
             </Reveal>
 
-            <Reveal className="mt-16">
+            <Reveal className="mt-10 sm:mt-16">
               <p className="text-xs uppercase tracking-[0.3em] text-gold-deep">Amenities</p>
               <ul className="mt-6 grid grid-cols-2 gap-x-8 border-t border-black/10 md:grid-cols-4">
                 {amenities.map((a) => (
@@ -330,11 +330,11 @@ export default function Home() {
         </section>
 
         {/* Our Doctor */}
-        <section id="doctor" className="py-24 md:py-32">
-          <div className="mx-auto grid max-w-6xl items-center gap-14 px-6 md:grid-cols-[2fr_3fr]">
+        <section id="doctor" className="py-16 sm:py-24 md:py-32">
+          <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 md:grid-cols-[2fr_3fr] md:gap-14">
             <Reveal>
               {/* Portrait placeholder — replace with a photo of Dr. Siji Joseph */}
-              <div className="relative flex aspect-[4/5] items-center justify-center overflow-hidden rounded-2xl bg-linen">
+              <div className="relative mx-auto flex aspect-[4/3] w-full max-w-md items-center md:aspect-[4/5] md:max-w-none justify-center overflow-hidden rounded-2xl bg-linen">
                 <span className="font-serif text-8xl text-gold">SJ</span>
                 <span className="absolute bottom-5 left-5 rounded-full border border-black/10 bg-white/60 px-3 py-1 text-xs text-muted backdrop-blur-md">
                   Third generation
@@ -343,7 +343,7 @@ export default function Home() {
             </Reveal>
             <Reveal delay={120}>
               <Label>Our Doctor</Label>
-              <h2 className="mt-5 font-serif text-4xl text-forest md:text-5xl">Dr. Siji Joseph</h2>
+              <h2 className="mt-5 font-serif text-3xl text-forest sm:text-4xl md:text-5xl">Dr. Siji Joseph</h2>
               <p className="mt-5 max-w-lg leading-relaxed text-muted">
                 Ayurveda at Chandana is a family inheritance. It began with Dr. Siji Joseph’s grandfather,
                 was carried forward by the late Elikutty, and is practised today with the same care.
@@ -371,22 +371,22 @@ export default function Home() {
         </section>
 
         {/* Why Choose Us */}
-        <section id="why-us" className="bg-forest py-24 md:py-32">
+        <section id="why-us" className="bg-forest py-16 sm:py-24 md:py-32">
           <div className="mx-auto max-w-6xl px-6">
-            <Reveal className="grid gap-6 md:grid-cols-[1fr_2fr] md:items-end">
+            <Reveal className="grid gap-6 lg:grid-cols-[1fr_2fr] lg:items-end">
               <div>
                 <p className="text-xs uppercase tracking-[0.3em] text-gold">Why Choose Us</p>
-                <h2 className="mt-5 font-serif text-4xl leading-tight text-white md:text-5xl">
+                <h2 className="mt-5 font-serif text-3xl leading-tight text-white sm:text-4xl md:text-5xl">
                   Why Chandana Ayurveda?
                 </h2>
               </div>
-              <p className="max-w-xl leading-relaxed text-white/65 md:justify-self-end">
+              <p className="max-w-xl leading-relaxed text-white/65 lg:justify-self-end">
                 Three generations of Ayurvedic knowledge, offered with the attention and care every patient
                 deserves.
               </p>
             </Reveal>
 
-            <ul className="mt-16 grid gap-px overflow-hidden rounded-2xl bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+            <ul className="mt-10 sm:mt-16 grid gap-px overflow-hidden rounded-2xl bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
               {reasons.map(({ icon: Icon, title, text }, i) => (
                 <li key={title} className="bg-forest">
                   <Reveal delay={i * 100} className="group h-full p-8 transition-colors duration-500 hover:bg-white/[0.04]">
@@ -430,14 +430,14 @@ export default function Home() {
 
         {/* Testimonials — only consented entries from lib/site.ts are shown */}
         {publishedTestimonials.length > 0 && (
-          <section id="testimonials" className="py-24 md:py-32">
+          <section id="testimonials" className="py-16 sm:py-24 md:py-32">
             <div className="mx-auto max-w-6xl px-6">
               <Reveal className="mx-auto max-w-2xl text-center">
                 <Label>Patient Stories</Label>
-                <h2 className="mt-5 font-serif text-4xl text-forest md:text-5xl">In Their Own Words</h2>
+                <h2 className="mt-5 font-serif text-3xl text-forest sm:text-4xl md:text-5xl">In Their Own Words</h2>
               </Reveal>
 
-              <ul className="mt-16 columns-1 gap-6 md:columns-2 lg:columns-3">
+              <ul className="mt-10 sm:mt-16 columns-1 gap-6 md:columns-2 lg:columns-3">
                 {publishedTestimonials.map((t, i) => (
                   <li key={i} className="mb-6 break-inside-avoid">
                     <Reveal delay={(i % 3) * 100}>
@@ -484,7 +484,7 @@ export default function Home() {
         )}
 
         {/* Contact */}
-        <section id="contact" className="border-t border-black/5 bg-linen py-24">
+        <section id="contact" className="border-t border-black/5 bg-linen py-16 sm:py-24">
           <div className="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-[1fr_2fr]">
             <div>
               <Label>Contact</Label>

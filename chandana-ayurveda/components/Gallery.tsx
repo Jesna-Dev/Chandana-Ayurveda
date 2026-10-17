@@ -53,12 +53,12 @@ export default function Gallery({ images }: { images: GalleryImage[] }) {
         ))}
       </div>
 
-      <ul className="mt-10 columns-1 gap-4 sm:columns-2 lg:columns-3">
+      <ul className="mt-10 columns-2 gap-3 sm:gap-4 lg:columns-3">
         {shown.map((img, i) => (
-          <li key={img.src} className="mb-4 break-inside-avoid">
+          <li key={img.src} className="mb-3 break-inside-avoid sm:mb-4">
             <button
               onClick={() => setOpen(i)}
-              className="group relative block w-full overflow-hidden rounded-2xl"
+              className="group relative block w-full overflow-hidden rounded-xl sm:rounded-2xl"
               aria-label={`View photo: ${img.alt}`}
             >
               <Image
@@ -66,7 +66,7 @@ export default function Gallery({ images }: { images: GalleryImage[] }) {
                 alt={img.alt}
                 width={img.width}
                 height={img.height}
-                sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+                sizes="(min-width:1024px) 33vw, 50vw"
                 className="h-auto w-full transition-transform duration-[1200ms] ease-out group-hover:scale-105"
               />
               <span className="absolute inset-0 bg-gradient-to-t from-forest/80 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />

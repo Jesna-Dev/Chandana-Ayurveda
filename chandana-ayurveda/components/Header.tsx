@@ -34,12 +34,24 @@ export default function Header() {
         </button>
       </div>
       {open && (
-        <nav className="flex flex-col gap-4 px-6 pb-6 text-muted lg:hidden">
+        <nav className="flex max-h-[calc(100svh-4.5rem)] flex-col overflow-y-auto px-6 pb-6 text-muted lg:hidden">
           {nav.map((item) => (
-            <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => setOpen(false)}
+              className="border-b border-black/5 py-3 transition-colors hover:text-forest"
+            >
               {item.label}
             </Link>
           ))}
+          <Link
+            href="/#contact"
+            onClick={() => setOpen(false)}
+            className="mt-5 rounded-full bg-forest py-3 text-center text-sm text-white transition-colors hover:bg-sage"
+          >
+            Book a visit
+          </Link>
         </nav>
       )}
     </header>
