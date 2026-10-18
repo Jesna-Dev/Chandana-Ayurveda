@@ -101,37 +101,98 @@ export default function Home() {
 
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative isolate flex h-[calc(100svh-4.5rem)] min-h-[560px] max-h-[860px] items-center overflow-hidden">
-          <Image
-            src={heroImage}
-            alt="Herbal poultices, oils and a dhara pot on a wooden table in a sunlit room"
-            fill
-            priority
-            placeholder="blur"
-            sizes="100vw"
-            className="-z-10 object-cover object-[60%_center]"
-          />
-          {/* Gentle warm shade on the left so the glass panel has a calm backdrop */}
-          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-forest/40 via-forest/10 to-transparent" />
-          <div className="mx-auto w-full max-w-6xl px-6">
-            <div className="max-w-xl rounded-2xl border border-white/25 lg:max-w-2xl bg-white/10 p-6 shadow-[0_8px_40px_rgba(38,61,43,0.25)] backdrop-blur-md sm:p-10 lg:p-12">
-              <p className="text-xs uppercase tracking-[0.3em] text-white/85">Kerala Ayurveda Hospital</p>
-              <h1 className="mt-5 font-serif text-4xl leading-[1.1] text-white sm:text-5xl lg:text-6xl">
-                Heal naturally,
+        <section className="relative isolate flex min-h-[600px] items-center overflow-hidden bg-forest sm:min-h-[640px] lg:h-[calc(100svh-4.5rem)] lg:max-h-[900px]">
+          {/* Slow "Ken Burns" zoom on the photo */}
+          <div className="hero-zoom absolute inset-0 -z-10">
+            <Image
+              src={heroImage}
+              alt="Herbal poultices, oils and a dhara pot on a wooden table in a sunlit room"
+              fill
+              priority
+              placeholder="blur"
+              sizes="100vw"
+              className="object-cover object-[60%_center]"
+            />
+          </div>
+          {/* Shade: deeper on the left for the text, and along the bottom for the trust strip */}
+          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-forest/70 via-forest/25 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 -z-10 h-1/3 bg-gradient-to-t from-forest/60 to-transparent" />
+
+          <div className="mx-auto w-full max-w-6xl px-6 py-16 lg:py-0">
+            <div className="max-w-xl rounded-3xl border border-white/20 bg-forest/35 p-5 shadow-[0_20px_60px_rgba(38,61,43,0.35)] backdrop-blur-md min-[400px]:p-6 sm:p-10 lg:max-w-2xl lg:p-12 xl:max-w-[46rem]">
+              <p className="hero-rise flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-gold" style={{ "--d": "100ms" } as React.CSSProperties}>
+                <span className="h-px w-8 bg-gold" />
+                Kerala Ayurveda Hospital
+              </p>
+              <h1
+                className="hero-rise mt-6 font-serif text-[2.2rem] leading-[1.05] text-white min-[400px]:text-[2.6rem] sm:text-6xl xl:text-[4.25rem]"
+                style={{ "--d": "250ms" } as React.CSSProperties}
+              >
+                Heal <em className="font-serif text-gold italic">naturally</em>,
                 <br />
                 the Ayurvedic way.
               </h1>
-              <p className="mt-5 max-w-md leading-relaxed text-white/90">
-                Authentic Kerala treatments guided by experienced Vaidyas, for balance of body and mind.
-              </p>
-              <a
-                href="#contact"
-                className="mt-8 inline-block rounded-full bg-white px-8 py-3.5 text-sm tracking-wide text-forest transition-colors hover:bg-background"
+              <p
+                className="hero-rise mt-6 max-w-md text-base leading-relaxed text-white/90 sm:text-lg"
+                style={{ "--d": "400ms" } as React.CSSProperties}
               >
-                Book a visit
-              </a>
+                Authentic Kerala treatments, carried through three generations of our family, for lasting
+                balance of body and mind.
+              </p>
+              <div className="hero-rise mt-9 flex flex-wrap gap-3" style={{ "--d": "550ms" } as React.CSSProperties}>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-medium text-forest shadow-lg shadow-black/10 transition-all hover:-translate-y-0.5 hover:bg-white"
+                >
+                  <Whatsapp className="h-4 w-4" />
+                  Book on WhatsApp
+                </a>
+                <a
+                  href="#treatments"
+                  className="inline-flex items-center rounded-full border border-white/40 px-7 py-3.5 text-sm font-medium text-white transition-colors hover:border-white hover:bg-white hover:text-forest"
+                >
+                  Explore treatments
+                </a>
+              </div>
+
+              <ul
+                className="hero-rise mt-10 grid grid-cols-3 gap-4 border-t border-white/20 pt-6 text-white"
+                style={{ "--d": "700ms" } as React.CSSProperties}
+              >
+                {[
+                  ["3", "Generations of healing"],
+                  ["Kerala", "Classical tradition"],
+                  ["Online", "& in-person care"],
+                ].map(([value, label]) => (
+                  <li key={label}>
+                    <p className="font-serif text-2xl font-semibold text-gold sm:text-3xl">{value}</p>
+                    <p className="mt-1 text-xs leading-snug text-white/75 sm:text-sm">{label}</p>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
+
+          {/* Floating WhatsApp card (desktop) */}
+          {whatsappUrl && (
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero-rise hero-float absolute bottom-10 right-8 hidden items-center gap-4 rounded-2xl border border-white/25 bg-white/15 py-3 pl-3 pr-6 text-white shadow-xl backdrop-blur-md transition-colors hover:bg-white/25 lg:flex xl:right-[max(2rem,calc((100vw-72rem)/2))]"
+              style={{ "--d": "900ms" } as React.CSSProperties}
+            >
+              <span className="relative flex h-11 w-11 items-center justify-center rounded-full bg-gold text-forest">
+                <Whatsapp className="h-5 w-5" />
+                <span className="absolute right-0 top-0 h-3 w-3 rounded-full border-2 border-white bg-green-500" />
+              </span>
+              <span>
+                <span className="block text-sm font-medium">Questions? Chat with us</span>
+                <span className="block text-xs text-white/75">We reply on WhatsApp</span>
+              </span>
+            </a>
+          )}
+
         </section>
 
         {/* About */}
